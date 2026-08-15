@@ -1,0 +1,2584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="DEMO independiente de una posible página web para Elotes la Pasadita en Waco, Texas."
+  >
+
+  <meta name="theme-color" content="#8f1d2c">
+
+  <title>Elotes la Pasadita | DEMO</title>
+
+  <style>
+
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+    :root {
+      --rojo: #8f1d2c;
+      --rojo-oscuro: #65121e;
+      --verde: #245c45;
+      --crema: #fff8ec;
+      --crema-2: #f6ead8;
+      --amarillo: #e9b949;
+      --texto: #292421;
+      --gris: #6d6862;
+      --blanco: #ffffff;
+
+      /* Sombras un poco más suaves para una sensación limpia */
+      --sombra: 0 10px 30px rgba(41, 36, 33, 0.09);
+
+      --radio: 20px;
+      --max: 1150px;
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background: var(--crema);
+      color: var(--texto);
+
+      line-height: 1.6;
+
+      overflow-x: hidden;
+    }
+
+    button,
+    a {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    /* =========================================================
+       DEMO NOTICE
+    ========================================================= */
+
+    .demo-bar {
+      position: relative;
+      z-index: 1000;
+
+      background: #171412;
+      color: #fff;
+
+      text-align: center;
+
+      padding: 8px 14px;
+
+      font-size: 0.76rem;
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+    }
+
+    .demo-bar strong {
+      color: #ffd978;
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    header {
+      position: absolute;
+
+      top: 38px;
+      left: 0;
+
+      width: 100%;
+
+      z-index: 100;
+    }
+
+    .nav {
+      width: min(calc(100% - 32px), var(--max));
+
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 12px 16px;
+
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 17px;
+
+      background: rgba(35, 22, 18, 0.55);
+
+      backdrop-filter: blur(15px);
+
+      color: white;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+
+      gap: 9px;
+
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 11px;
+
+      background: var(--amarillo);
+      color: var(--rojo-oscuro);
+
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+
+      gap: 23px;
+
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 700;
+
+      opacity: 0.9;
+
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffd978;
+    }
+
+    .nav-call {
+      padding: 8px 14px;
+
+      border-radius: 11px;
+
+      background: white;
+      color: var(--rojo);
+
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 700px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(233,185,73,0.24),
+          transparent 28%
+        ),
+        linear-gradient(
+          135deg,
+          #63151f 0%,
+          #8f1d2c 48%,
+          #a62d31 100%
+        );
+
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      opacity: 0.08;
+
+      background-image:
+        radial-gradient(#fff 1px, transparent 1px);
+
+      background-size: 25px 25px;
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 560px;
+      height: 560px;
+
+      right: -230px;
+      bottom: -300px;
+
+      border-radius: 50%;
+
+      border: 75px solid rgba(255,255,255,0.035);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      width: min(calc(100% - 32px), var(--max));
+
+      margin: auto;
+
+      padding-top: 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+
+      grid-template-columns: 1.1fr 0.9fr;
+
+      gap: 42px;
+
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+
+      align-items: center;
+      gap: 8px;
+
+      padding: 7px 12px;
+
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+
+      background: rgba(255,255,255,0.07);
+
+      font-size: 0.75rem;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+
+      margin-bottom: 20px;
+    }
+
+    .eyebrow span {
+      width: 7px;
+      height: 7px;
+
+      flex-shrink: 0;
+
+      border-radius: 50%;
+
+      background: #ffd978;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.6rem);
+
+      line-height: 0.95;
+
+      letter-spacing: -0.06em;
+
+      max-width: 680px;
+
+      margin-bottom: 22px;
+    }
+
+    .hero h1 em {
+      color: #ffd978;
+
+      font-style: normal;
+    }
+
+    .hero-description {
+      max-width: 560px;
+
+      color: rgba(255,255,255,0.82);
+
+      font-size: 1rem;
+
+      margin-bottom: 27px;
+    }
+
+    .hero-buttons {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      min-height: 48px;
+
+      padding: 0 18px;
+
+      border-radius: 13px;
+
+      font-weight: 850;
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: #ffd978;
+
+      color: #58121c;
+
+      box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.22);
+
+      background: rgba(255,255,255,0.08);
+
+      color: white;
+    }
+
+    .hero-card {
+      position: relative;
+
+      min-height: 380px;
+
+      display: flex;
+      align-items: flex-end;
+
+      padding: 23px;
+
+      border-radius: 27px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(24, 10, 8, 0.78),
+          rgba(24, 10, 8, 0.06)
+        ),
+        radial-gradient(
+          circle at 50% 35%,
+          #eab95e,
+          #b76c29 38%,
+          #56251a 80%
+        );
+
+      box-shadow:
+        0 22px 55px rgba(0,0,0,0.22);
+
+      transform: rotate(0.6deg);
+    }
+
+    .hero-food {
+      position: absolute;
+
+      inset: 0;
+
+      display: grid;
+
+      place-items: center;
+
+      font-size: clamp(7rem, 17vw, 11rem);
+
+      filter:
+        drop-shadow(0 16px 16px rgba(0,0,0,0.25));
+    }
+
+    .hero-card-info {
+      position: relative;
+
+      z-index: 2;
+
+      width: 100%;
+
+      padding: 17px;
+
+      border-radius: 16px;
+
+      background: rgba(20, 12, 9, 0.5);
+
+      backdrop-filter: blur(11px);
+    }
+
+    .hero-card-info small {
+      color: #ffd978;
+
+      font-weight: 800;
+    }
+
+    .hero-card-info h3 {
+      margin-top: 3px;
+
+      font-size: 1.3rem;
+    }
+
+    .hero-card-info p {
+      font-size: 0.88rem;
+    }
+
+
+    /* =========================================================
+       SECCIONES GENERALES
+    ========================================================= */
+
+    section {
+      padding: 84px 16px;
+    }
+
+    .container {
+      width: min(100%, var(--max));
+
+      margin: auto;
+    }
+
+    .section-heading {
+      max-width: 650px;
+
+      margin-bottom: 38px;
+    }
+
+    .section-label {
+      color: var(--rojo);
+
+      font-size: 0.73rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.12em;
+
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+
+      line-height: 1.02;
+
+      letter-spacing: -0.05em;
+
+      margin-bottom: 13px;
+    }
+
+    .section-heading p {
+      color: var(--gris);
+
+      max-width: 600px;
+
+      font-size: 0.96rem;
+    }
+
+
+    /* =========================================================
+       HIGHLIGHTS
+    ========================================================= */
+
+    .highlights {
+      background: var(--crema);
+    }
+
+    .highlight-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 16px;
+    }
+
+    .highlight {
+      padding: 22px;
+
+      border-radius: var(--radio);
+
+      background: white;
+
+      box-shadow: var(--sombra);
+
+      border: 1px solid rgba(41,36,33,0.05);
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .highlight:hover {
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 16px 38px rgba(41,36,33,0.12);
+    }
+
+    .highlight-icon {
+      width: 50px;
+      height: 50px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 15px;
+
+      border-radius: 14px;
+
+      background: var(--crema-2);
+
+      font-size: 1.45rem;
+    }
+
+    .highlight h3 {
+      font-size: 1.15rem;
+
+      margin-bottom: 5px;
+    }
+
+    .highlight p {
+      color: var(--gris);
+
+      font-size: 0.88rem;
+    }
+
+
+    /* =========================================================
+       MENU
+    ========================================================= */
+
+    .menu-section {
+      background: #f1e5d3;
+    }
+
+    .menu-note {
+      margin-top: -16px;
+
+      margin-bottom: 28px;
+
+      padding: 13px 16px;
+
+      border-radius: 13px;
+
+      background: rgba(143,29,44,0.07);
+
+      color: #704b45;
+
+      font-size: 0.84rem;
+    }
+
+    .menu-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 17px;
+    }
+
+    .food-card {
+      position: relative;
+
+      overflow: hidden;
+
+      min-height: 330px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      background: white;
+
+      border-radius: 21px;
+
+      border: 1px solid rgba(41,36,33,0.05);
+
+      box-shadow:
+        0 9px 28px rgba(41,36,33,0.08);
+
+      cursor: pointer;
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .food-card:hover {
+      transform: translateY(-6px);
+
+      box-shadow:
+        0 18px 42px rgba(41,36,33,0.13);
+    }
+
+    .food-image {
+      height: 195px;
+
+      display: grid;
+
+      place-items: center;
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #f4cb75,
+          #d99738 50%,
+          #9b5127
+        );
+    }
+
+    .food-image::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.14),
+          transparent 45%
+        );
+    }
+
+    .food-emoji {
+      position: relative;
+
+      z-index: 2;
+
+      font-size: 5.4rem;
+
+      filter:
+        drop-shadow(0 12px 10px rgba(0,0,0,0.22));
+
+      transition:
+        transform 0.35s ease;
+    }
+
+    .food-card:hover .food-emoji {
+      transform:
+        scale(1.07)
+        rotate(-2deg);
+    }
+
+    .food-content {
+      padding: 19px;
+
+      flex: 1;
+
+      display: flex;
+
+      flex-direction: column;
+    }
+
+    .food-tag {
+      display: inline-block;
+
+      align-self: flex-start;
+
+      margin-bottom: 7px;
+
+      padding: 4px 8px;
+
+      border-radius: 999px;
+
+      background: #f6e9d2;
+
+      color: var(--rojo);
+
+      font-size: 0.65rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+    }
+
+    .food-content h3 {
+      font-size: 1.25rem;
+
+      margin-bottom: 4px;
+    }
+
+    .food-content p {
+      color: var(--gris);
+
+      font-size: 0.87rem;
+
+      margin-bottom: 15px;
+    }
+
+    .view-more {
+      margin-top: auto;
+
+      color: var(--rojo);
+
+      font-weight: 850;
+
+      font-size: 0.82rem;
+    }
+
+
+    /* =========================================================
+       INFORMACIÓN
+    ========================================================= */
+
+    .info-section {
+      background: var(--crema);
+    }
+
+    .info-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 17px;
+    }
+
+    .info-card {
+      padding: 28px;
+
+      background: white;
+
+      border-radius: var(--radio);
+
+      box-shadow: var(--sombra);
+
+      border: 1px solid rgba(41,36,33,0.05);
+    }
+
+    .info-card h3 {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin-bottom: 20px;
+
+      font-size: 1.25rem;
+    }
+
+    .info-icon {
+      width: 40px;
+      height: 40px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 11px;
+
+      background: var(--crema-2);
+    }
+
+    .address {
+      color: var(--gris);
+
+      margin-bottom: 18px;
+
+      font-size: 0.94rem;
+    }
+
+    .address strong {
+      color: var(--texto);
+
+      display: block;
+
+      font-size: 1rem;
+    }
+
+    .hours {
+      display: grid;
+
+      gap: 8px;
+    }
+
+    .hours-row {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      padding-bottom: 8px;
+
+      border-bottom:
+        1px solid #eee5d9;
+
+      font-size: 0.87rem;
+    }
+
+    .hours-row span:first-child {
+      font-weight: 750;
+    }
+
+    .hours-row span:last-child {
+      color: var(--gris);
+
+      text-align: right;
+    }
+
+    .info-actions {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 9px;
+
+      margin-top: 22px;
+    }
+
+    .action-btn {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      min-height: 44px;
+
+      padding: 0 14px;
+
+      border-radius: 12px;
+
+      background: var(--rojo);
+
+      color: white;
+
+      font-size: 0.86rem;
+
+      font-weight: 800;
+
+      transition: 0.25s ease;
+    }
+
+    .action-btn:hover {
+      background: var(--rojo-oscuro);
+
+      transform: translateY(-2px);
+    }
+
+    .action-btn.secondary {
+      background: var(--crema-2);
+
+      color: var(--rojo);
+    }
+
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .cta {
+      padding-top: 5px;
+
+      padding-bottom: 84px;
+
+      background: var(--crema);
+    }
+
+    .cta-box {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 50px 30px;
+
+      border-radius: 27px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--rojo-oscuro),
+          var(--rojo)
+        );
+
+      color: white;
+
+      text-align: center;
+
+      box-shadow:
+        0 18px 50px rgba(101,18,30,0.17);
+    }
+
+    .cta-box::before {
+      content: "🌽";
+
+      position: absolute;
+
+      right: 5%;
+      top: -45px;
+
+      font-size: 10rem;
+
+      opacity: 0.07;
+
+      transform: rotate(20deg);
+    }
+
+    .cta-box h2 {
+      position: relative;
+
+      z-index: 2;
+
+      font-size: clamp(2rem, 5vw, 3.1rem);
+
+      line-height: 1;
+
+      letter-spacing: -0.05em;
+
+      margin-bottom: 13px;
+    }
+
+    .cta-box p {
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 570px;
+
+      margin: 0 auto 23px;
+
+      color: rgba(255,255,255,0.8);
+
+      font-size: 0.94rem;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding: 30px 16px;
+
+      background: #211b18;
+
+      color: rgba(255,255,255,0.7);
+    }
+
+    .footer-inner {
+      width: min(100%, var(--max));
+
+      margin: auto;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 20px;
+    }
+
+    .footer-title {
+      color: white;
+
+      font-weight: 850;
+    }
+
+    .footer-small {
+      margin-top: 2px;
+
+      font-size: 0.76rem;
+    }
+
+    .footer-demo {
+      color: #ffd978;
+
+      font-size: 0.76rem;
+
+      text-align: right;
+    }
+
+
+    /* =========================================================
+       MODAL
+    ========================================================= */
+
+    .modal {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 2000;
+
+      display: none;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 18px;
+
+      background: rgba(17,12,10,0.7);
+
+      backdrop-filter: blur(7px);
+    }
+
+    .modal.active {
+      display: flex;
+
+      animation: fadeIn 0.25s ease;
+    }
+
+    .modal-box {
+      width: min(100%, 500px);
+
+      position: relative;
+
+      background: white;
+
+      border-radius: 23px;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,0.3);
+
+      animation: modalUp 0.3s ease;
+    }
+
+    .modal-top {
+      height: 195px;
+
+      display: grid;
+
+      place-items: center;
+
+      background:
+        radial-gradient(
+          circle,
+          #f2c766,
+          #c2762d
+        );
+    }
+
+    .modal-emoji {
+      font-size: 6.5rem;
+
+      filter:
+        drop-shadow(0 13px 10px rgba(0,0,0,0.23));
+    }
+
+    .modal-content {
+      padding: 25px;
+    }
+
+    .modal-content small {
+      color: var(--rojo);
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.1em;
+
+      font-size: 0.7rem;
+    }
+
+    .modal-content h3 {
+      margin: 4px 0 9px;
+
+      font-size: 1.85rem;
+
+      line-height: 1.05;
+    }
+
+    .modal-content p {
+      color: var(--gris);
+
+      font-size: 0.92rem;
+
+      margin-bottom: 18px;
+    }
+
+    .modal-close {
+      position: absolute;
+
+      right: 13px;
+      top: 13px;
+
+      width: 40px;
+      height: 40px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: rgba(0,0,0,0.42);
+
+      color: white;
+
+      font-size: 1.25rem;
+
+      cursor: pointer;
+
+      z-index: 5;
+    }
+
+    .modal-warning {
+      padding: 11px 13px;
+
+      border-radius: 11px;
+
+      background: #fff6df;
+
+      color: #765c2a;
+
+      font-size: 0.78rem;
+
+      line-height: 1.5;
+    }
+
+
+    /* =========================================================
+       ANIMACIONES
+    ========================================================= */
+
+    @keyframes fadeIn {
+
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+
+    }
+
+    @keyframes modalUp {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(20px)
+          scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+
+    }
+
+    .reveal {
+      opacity: 0;
+
+      transform:
+        translateY(18px);
+
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+
+        padding-bottom: 65px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+
+        gap: 34px;
+      }
+
+      .hero-card {
+        min-height: 330px;
+
+        transform: none;
+      }
+
+      .highlight-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 560px) {
+
+      /* -------------------------
+         DEMO BAR
+      ------------------------- */
+
+      .demo-bar {
+        padding:
+          7px 12px;
+
+        font-size: 0.7rem;
+      }
+
+
+      /* -------------------------
+         HEADER
+      ------------------------- */
+
+      header {
+        top: 35px;
+      }
+
+      .nav {
+        width: calc(100% - 24px);
+
+        padding: 10px 11px;
+
+        border-radius: 15px;
+      }
+
+      .logo {
+        font-size: 0.82rem;
+      }
+
+      .logo-icon {
+        width: 33px;
+        height: 33px;
+
+        font-size: 1rem;
+      }
+
+      .nav-call {
+        padding: 7px 10px;
+
+        font-size: 0.74rem;
+      }
+
+
+      /* -------------------------
+         HERO
+      ------------------------- */
+
+      .hero-content {
+        padding-top: 115px;
+      }
+
+      .hero h1 {
+        font-size:
+          clamp(2.8rem, 14vw, 4.3rem);
+
+        max-width: 100%;
+
+        margin-bottom: 18px;
+      }
+
+      .hero-description {
+        font-size: 0.91rem;
+
+        line-height: 1.55;
+
+        margin-bottom: 22px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+
+        gap: 8px;
+      }
+
+      .btn {
+        width: 100%;
+
+        min-height: 46px;
+      }
+
+      .hero-card {
+        min-height: 285px;
+
+        padding: 17px;
+
+        border-radius: 22px;
+      }
+
+      .hero-food {
+        font-size: 7rem;
+      }
+
+      .hero-card-info {
+        padding: 14px;
+      }
+
+      .hero-card-info h3 {
+        font-size: 1.15rem;
+      }
+
+      .hero-card-info p {
+        font-size: 0.8rem;
+      }
+
+
+      /* -------------------------
+         SECCIONES
+      ------------------------- */
+
+      section {
+        padding:
+          67px 14px;
+      }
+
+      .section-heading {
+        margin-bottom: 29px;
+      }
+
+      .section-heading h2 {
+        font-size:
+          clamp(2rem, 10vw, 3rem);
+
+        margin-bottom: 10px;
+      }
+
+      .section-heading p {
+        font-size: 0.89rem;
+
+        line-height: 1.55;
+      }
+
+
+      /* -------------------------
+         HIGHLIGHTS
+      ------------------------- */
+
+      .highlight-grid {
+        gap: 11px;
+      }
+
+      .highlight {
+        padding: 18px;
+
+        border-radius: 17px;
+      }
+
+      .highlight-icon {
+        width: 45px;
+        height: 45px;
+
+        margin-bottom: 12px;
+
+        border-radius: 12px;
+
+        font-size: 1.3rem;
+      }
+
+      .highlight h3 {
+        font-size: 1.08rem;
+      }
+
+      .highlight p {
+        font-size: 0.84rem;
+      }
+
+
+      /* -------------------------
+         MENU
+      ------------------------- */
+
+      .menu-note {
+        margin-top: -7px;
+
+        margin-bottom: 22px;
+
+        padding: 11px 13px;
+
+        font-size: 0.77rem;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+      }
+
+      .food-card {
+        min-height: 0;
+
+        border-radius: 18px;
+      }
+
+      .food-image {
+        height: 180px;
+      }
+
+      .food-emoji {
+        font-size: 5rem;
+      }
+
+      .food-content {
+        padding: 17px;
+      }
+
+      .food-content h3 {
+        font-size: 1.18rem;
+      }
+
+      .food-content p {
+        font-size: 0.84rem;
+
+        margin-bottom: 12px;
+      }
+
+      .view-more {
+        font-size: 0.79rem;
+      }
+
+
+      /* -------------------------
+         INFORMACIÓN
+      ------------------------- */
+
+      .info-grid {
+        gap: 13px;
+      }
+
+      .info-card {
+        padding: 21px;
+
+        border-radius: 17px;
+      }
+
+      .info-card h3 {
+        margin-bottom: 17px;
+
+        font-size: 1.15rem;
+      }
+
+      .info-icon {
+        width: 37px;
+        height: 37px;
+
+        border-radius: 10px;
+      }
+
+      .hours {
+        gap: 7px;
+      }
+
+      .hours-row {
+        font-size: 0.78rem;
+
+        padding-bottom: 7px;
+      }
+
+      .address {
+        font-size: 0.88rem;
+      }
+
+      .info-actions {
+        flex-direction: column;
+
+        gap: 7px;
+      }
+
+      .action-btn {
+        width: 100%;
+
+        min-height: 43px;
+      }
+
+
+      /* -------------------------
+         CTA
+      ------------------------- */
+
+      .cta {
+        padding-top: 0;
+
+        padding-bottom: 67px;
+      }
+
+      .cta-box {
+        padding: 39px 20px;
+
+        border-radius: 22px;
+      }
+
+      .cta-box h2 {
+        font-size: 2.15rem;
+      }
+
+      .cta-box p {
+        font-size: 0.85rem;
+
+        line-height: 1.55;
+      }
+
+
+      /* -------------------------
+         MODAL
+      ------------------------- */
+
+      .modal {
+        padding: 14px;
+      }
+
+      .modal-box {
+        border-radius: 20px;
+      }
+
+      .modal-top {
+        height: 175px;
+      }
+
+      .modal-emoji {
+        font-size: 5.8rem;
+      }
+
+      .modal-content {
+        padding: 21px;
+      }
+
+      .modal-content h3 {
+        font-size: 1.65rem;
+      }
+
+      .modal-content p {
+        font-size: 0.86rem;
+      }
+
+
+      /* -------------------------
+         FOOTER
+      ------------------------- */
+
+      footer {
+        padding: 26px 14px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+      }
+
+      .footer-demo {
+        text-align: left;
+      }
+
+    }
+
+
+    /* =========================================================
+       REDUCCIÓN DE MOVIMIENTO
+       Para usuarios que prefieren menos animaciones.
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       AVISO DE DEMO
+  ======================================================== -->
+
+  <div class="demo-bar">
+    <strong>DEMO INDEPENDIENTE</strong>
+    · Este sitio no es la página oficial de Elotes la Pasadita.
+  </div>
+
+
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
+
+  <header>
+
+    <nav class="nav">
+
+      <a href="#inicio" class="logo">
+        <span class="logo-icon">🌽</span>
+        <span>Elotes la Pasadita</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#menu">Menú</a>
+        <a href="#horarios">Horarios</a>
+        <a href="#ubicacion">Ubicación</a>
+      </div>
+
+      <a
+        class="nav-call"
+        href="tel:+12546338891"
+      >
+        📞 Llamar
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <main id="inicio">
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="hero-grid">
+
+          <div>
+
+            <div class="eyebrow">
+              <span></span>
+              Antojitos mexicanos · Waco, Texas
+            </div>
+
+            <h1>
+              Sabor que
+              <em>se antoja.</em>
+            </h1>
+
+            <p class="hero-description">
+              Una propuesta de página web moderna para presentar
+              Elotes la Pasadita y algunos de los antojitos que
+              aparecen asociados al restaurante en fuentes públicas.
+            </p>
+
+            <div class="hero-buttons">
+
+              <a
+                href="#menu"
+                class="btn btn-primary"
+              >
+                🌽 Ver productos
+              </a>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=2020+N+25th+St,+Waco,+TX+76708"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-secondary"
+              >
+                📍 Ver ubicación
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="hero-card">
+
+            <div class="hero-food">
+              🌽
+            </div>
+
+            <div class="hero-card-info">
+
+              <small>
+                PRODUCTO DESTACADO
+              </small>
+
+              <h3>
+                Elotes / Cup of Corn
+              </h3>
+
+              <p>
+                Uno de los productos más mencionados
+                en las reseñas públicas asociadas al negocio.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HIGHLIGHTS
+    ====================================================== -->
+
+    <section class="highlights">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-label">
+            Lo más destacado
+          </div>
+
+          <h2>
+            Antojitos para disfrutar.
+          </h2>
+
+          <p>
+            Estos son algunos de los productos que aparecen
+            repetidamente asociados con el restaurante en
+            fuentes y reseñas públicas.
+          </p>
+
+        </div>
+
+
+        <div class="highlight-grid">
+
+          <article class="highlight reveal">
+
+            <div class="highlight-icon">
+              🌽
+            </div>
+
+            <h3>
+              Elotes
+            </h3>
+
+            <p>
+              El producto característico que aparece
+              frecuentemente mencionado por clientes.
+            </p>
+
+          </article>
+
+
+          <article class="highlight reveal">
+
+            <div class="highlight-icon">
+              🫓
+            </div>
+
+            <h3>
+              Gorditas
+            </h3>
+
+            <p>
+              Entre ellas se mencionan gorditas de
+              chicharrón en reseñas públicas.
+            </p>
+
+          </article>
+
+
+          <article class="highlight reveal">
+
+            <div class="highlight-icon">
+              🧀
+            </div>
+
+            <h3>
+              Quesadillas
+            </h3>
+
+            <p>
+              Otro de los antojitos asociados al restaurante
+              en información pública.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MENU
+    ====================================================== -->
+
+    <section
+      class="menu-section"
+      id="menu"
+    >
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-label">
+            Selección
+          </div>
+
+          <h2>
+            Algunos favoritos.
+          </h2>
+
+          <p>
+            Una pequeña selección para esta DEMO.
+            No representa necesariamente el menú completo
+            del restaurante.
+          </p>
+
+        </div>
+
+
+        <div class="menu-note reveal">
+
+          ℹ️ <strong>Información por confirmar:</strong>
+          esta DEMO no muestra precios ni ingredientes
+          específicos porque no contamos con información
+          oficial confirmada por el propietario.
+
+        </div>
+
+
+        <div class="menu-grid">
+
+
+          <!-- ELOTE -->
+
+          <article
+            class="food-card reveal"
+            data-title="Elotes / Cup of Corn"
+            data-category="Producto destacado"
+            data-description="Elotes y cup of corn aparecen repetidamente mencionados como uno de los productos característicos asociados a Elotes la Pasadita."
+            data-emoji="🌽"
+          >
+
+            <div class="food-image">
+
+              <div class="food-emoji">
+                🌽
+              </div>
+
+            </div>
+
+            <div class="food-content">
+
+              <span class="food-tag">
+                Destacado
+              </span>
+
+              <h3>
+                Elotes
+              </h3>
+
+              <p>
+                El producto más característico asociado
+                al negocio.
+              </p>
+
+              <span class="view-more">
+                Tocar para más información →
+              </span>
+
+            </div>
+
+          </article>
+
+
+          <!-- GORDITAS -->
+
+          <article
+            class="food-card reveal"
+            data-title="Gorditas"
+            data-category="Antojito mexicano"
+            data-description="Las reseñas públicas mencionan gorditas, incluyendo referencias a gorditas de chicharrón."
+            data-emoji="🫓"
+          >
+
+            <div class="food-image">
+
+              <div class="food-emoji">
+                🫓
+              </div>
+
+            </div>
+
+            <div class="food-content">
+
+              <span class="food-tag">
+                Antojito
+              </span>
+
+              <h3>
+                Gorditas
+              </h3>
+
+              <p>
+                También aparecen asociadas con
+                gorditas de chicharrón.
+              </p>
+
+              <span class="view-more">
+                Tocar para más información →
+              </span>
+
+            </div>
+
+          </article>
+
+
+          <!-- QUESADILLAS -->
+
+          <article
+            class="food-card reveal"
+            data-title="Quesadillas"
+            data-category="Antojito mexicano"
+            data-description="Las quesadillas aparecen mencionadas entre los alimentos asociados al restaurante en fuentes públicas."
+            data-emoji="🧀"
+          >
+
+            <div class="food-image">
+
+              <div class="food-emoji">
+                🧀
+              </div>
+
+            </div>
+
+            <div class="food-content">
+
+              <span class="food-tag">
+                Antojito
+              </span>
+
+              <h3>
+                Quesadillas
+              </h3>
+
+              <p>
+                Otro de los productos mencionados
+                por clientes.
+              </p>
+
+              <span class="view-more">
+                Tocar para más información →
+              </span>
+
+            </div>
+
+          </article>
+
+
+          <!-- TACOS -->
+
+          <article
+            class="food-card reveal"
+            data-title="Tacos"
+            data-category="Antojito mexicano"
+            data-description="Los tacos aparecen asociados al restaurante en información pública. Los ingredientes, variedades y precios deben confirmarse directamente con el negocio."
+            data-emoji="🌮"
+          >
+
+            <div class="food-image">
+
+              <div class="food-emoji">
+                🌮
+              </div>
+
+            </div>
+
+            <div class="food-content">
+
+              <span class="food-tag">
+                Antojito
+              </span>
+
+              <h3>
+                Tacos
+              </h3>
+
+              <p>
+                Producto asociado al restaurante
+                en fuentes públicas.
+              </p>
+
+              <span class="view-more">
+                Tocar para más información →
+              </span>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HORARIOS + UBICACIÓN
+    ====================================================== -->
+
+    <section
+      class="info-section"
+      id="horarios"
+    >
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div class="section-label">
+            Información
+          </div>
+
+          <h2>
+            Encuéntranos en Waco.
+          </h2>
+
+          <p>
+            Horarios y ubicación mostrados como referencia
+            para esta DEMO.
+          </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+
+          <!-- HORARIOS -->
+
+          <article class="info-card reveal">
+
+            <h3>
+
+              <span class="info-icon">
+                🕐
+              </span>
+
+              Horarios
+
+            </h3>
+
+            <div class="hours">
+
+              <div class="hours-row">
+                <span>Lunes</span>
+                <span>10:00 AM – 10:00 PM</span>
+              </div>
+
+              <div class="hours-row">
+                <span>Martes</span>
+                <span>2:00 PM – 10:00 PM</span>
+              </div>
+
+              <div class="hours-row">
+                <span>Miércoles</span>
+                <span>2:00 PM – 10:00 PM</span>
+              </div>
+
+              <div class="hours-row">
+                <span>Jueves</span>
+                <span>2:00 PM – 10:00 PM</span>
+              </div>
+
+              <div class="hours-row">
+                <span>Viernes</span>
+                <span>2:00 PM – 11:00 PM</span>
+              </div>
+
+              <div class="hours-row">
+                <span>Sábado</span>
+                <span>2:00 PM – 11:00 PM</span>
+              </div>
+
+              <div class="hours-row">
+                <span>Domingo</span>
+                <span>8:00 AM – 10:00 PM</span>
+              </div>
+
+            </div>
+
+            <p
+              style="
+                margin-top:16px;
+                color:#806f65;
+                font-size:.76rem;
+              "
+            >
+              Horarios recopilados de fuentes públicas.
+              No están presentados como horarios oficiales
+              confirmados por el propietario.
+            </p>
+
+          </article>
+
+
+          <!-- UBICACIÓN -->
+
+          <article
+            class="info-card reveal"
+            id="ubicacion"
+          >
+
+            <h3>
+
+              <span class="info-icon">
+                📍
+              </span>
+
+              Ubicación
+
+            </h3>
+
+            <div class="address">
+
+              <strong>
+                Elotes la Pasadita
+              </strong>
+
+              2020 N 25th St<br>
+              Waco, TX 76708
+
+            </div>
+
+
+            <div class="info-actions">
+
+              <a
+                class="action-btn"
+                href="https://www.google.com/maps/search/?api=1&query=2020+N+25th+St,+Waco,+TX+76708"
+                target="_blank"
+                rel="noopener"
+              >
+                📍 Google Maps
+              </a>
+
+              <a
+                class="action-btn secondary"
+                href="tel:+12546338891"
+              >
+                📞 (254) 633-8891
+              </a>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="cta">
+
+      <div class="container">
+
+        <div class="cta-box reveal">
+
+          <h2>
+            ¿Se te antojó?
+          </h2>
+
+          <p>
+            Consulta la ubicación o llama directamente
+            al restaurante para confirmar disponibilidad,
+            precios y detalles del menú.
+          </p>
+
+          <a
+            href="tel:+12546338891"
+            class="btn btn-primary"
+          >
+            📞 Llamar al restaurante
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div>
+
+        <div class="footer-title">
+          Elotes la Pasadita
+        </div>
+
+        <div class="footer-small">
+          Waco, Texas · Antojitos mexicanos
+        </div>
+
+      </div>
+
+      <div class="footer-demo">
+
+        DEMO independiente<br>
+
+        Información sujeta a confirmación
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       MODAL
+  ======================================================== -->
+
+  <div
+    class="modal"
+    id="foodModal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal-box"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+
+      <button
+        class="modal-close"
+        id="modalClose"
+        aria-label="Cerrar"
+      >
+        ×
+      </button>
+
+
+      <div class="modal-top">
+
+        <div
+          class="modal-emoji"
+          id="modalEmoji"
+        >
+          🌽
+        </div>
+
+      </div>
+
+
+      <div class="modal-content">
+
+        <small id="modalCategory">
+          Producto
+        </small>
+
+        <h3 id="modalTitle">
+          Elotes
+        </h3>
+
+        <p id="modalDescription">
+          Información del producto.
+        </p>
+
+        <div class="modal-warning">
+
+          ℹ️ Esta es una DEMO. Los precios,
+          ingredientes, tamaños y disponibilidad
+          deben confirmarse directamente con el restaurante.
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    /* =======================================================
+       MODAL DE PRODUCTOS
+    ======================================================= */
+
+    const foodCards =
+      document.querySelectorAll(".food-card");
+
+    const modal =
+      document.getElementById("foodModal");
+
+    const modalClose =
+      document.getElementById("modalClose");
+
+    const modalTitle =
+      document.getElementById("modalTitle");
+
+    const modalCategory =
+      document.getElementById("modalCategory");
+
+    const modalDescription =
+      document.getElementById("modalDescription");
+
+    const modalEmoji =
+      document.getElementById("modalEmoji");
+
+
+    function openFoodModal(card) {
+
+      modalTitle.textContent =
+        card.dataset.title;
+
+      modalCategory.textContent =
+        card.dataset.category;
+
+      modalDescription.textContent =
+        card.dataset.description;
+
+      modalEmoji.textContent =
+        card.dataset.emoji;
+
+      modal.classList.add("active");
+
+      modal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    function closeFoodModal() {
+
+      modal.classList.remove("active");
+
+      modal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    foodCards.forEach(card => {
+
+      card.addEventListener(
+        "click",
+        () => openFoodModal(card)
+      );
+
+    });
+
+
+    modalClose.addEventListener(
+      "click",
+      closeFoodModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (event.target === modal) {
+          closeFoodModal();
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape" &&
+          modal.classList.contains("active")
+        ) {
+          closeFoodModal();
+        }
+
+      }
+    );
+
+
+    /* =======================================================
+       ANIMACIONES AL HACER SCROLL
+    ======================================================== */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("visible");
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.1
+        }
+      );
+
+
+    revealElements.forEach(element => {
+
+      observer.observe(element);
+
+    });
+
+
+    /* =======================================================
+       ENTER EN BOTÓN DE CERRAR
+    ======================================================== */
+
+    modalClose.addEventListener(
+      "keydown",
+      event => {
+
+        if (event.key === "Enter") {
+          closeFoodModal();
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
